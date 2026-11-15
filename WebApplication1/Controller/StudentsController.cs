@@ -46,5 +46,13 @@ namespace WebApplication1.Controller
             db.Students.Update(s2);
             db.SaveChanges();
         }
+        [HttpPut("deleteStudents")]
+        public void DelStudent(int id)
+        {
+            Students s2 = db.Students.FirstOrDefault(x => x.CodeStudent == id);
+            s2.Status = false;
+            db.Students.Update(s2);
+            db.SaveChanges();
+        }
     }
 }
